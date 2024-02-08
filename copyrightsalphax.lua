@@ -412,7 +412,7 @@ local Island11 = Island:CreateButton('Tree Island', function()
 end)
 
 local Island12 = Island:CreateButton('Iceberg Town', function()
-    hrp.Position = Vector3.new(-408.216552734375, 402.5606689453125, -10324.5751953125)
+    hrp.Position = Vector3.new(-20694.3203125, 483.656005859375, 554.5396118164062)
 end)
 
 --] Level Dropdowns [--
