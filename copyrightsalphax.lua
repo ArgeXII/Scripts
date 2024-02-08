@@ -78,7 +78,23 @@ local questNames = { -- aaaa my fingers
 	"Santa",
 	"Elf",
 	"Frost SSJ4",
-	"SSJ4"
+	"SSJ4",
+	"Turles",
+	"Nappa",
+	"Cyber",
+	"Dr. Gero",
+	"Yeti King",
+	"Android 13",
+	"Nash Ketchup",
+	"Skull Android",
+	"Azura",
+	"Kataba",
+	"Zuto",
+	"Sell",
+	"Nash Ketchup",
+	"Skull Android",
+	"Azura",
+	"Pikkon"
 }
 
 local islandNames = {"Jungle Island", "Great Ape Westeland", "Great Plains Island", "Galactic Patrol Island", "Power Tower Island", "Rad Ribbon Island", "Squid Town", "Tree Island", "Destroyed City", "East City", "Iceberg Town"}
@@ -398,7 +414,7 @@ end)
 
 --] Level Dropdowns [--
 
-local Dropdown_Mob = Level:CreateDropdown("Select a Mob", {"nil", "Ape", "Snowman", "Elf", "Santa", "Frost SSJ4", "SSJ4", "Frost", "Thief", "Thief Boss", "Bear Minion", "Bear King", "Aien", "Rogue Experiments", "Green Saibaman", "Red Saibaman", "Mountain Fighter", "Monster Saibablue", "Evil Namekian", "Martial Artists", "Spopov", "Yam", "Farmer", "Mobster", "Mob Mobster", "Elite Alien", "Funny Guy", "Saibablue", "Mutant Saibaman", "Evil Saiyan", "Postboy Namekian", "Greater Spopov", "Greater Yam", "Evil Majin", "Evil Saiyan", "Prototype Android", "Corrupted Kai", "Robert", "Boku Black", "Desert Bandit", "Ajax Follower" }, "nil", 0.25, function(newmobxd)
+local Dropdown_Mob = Level:CreateDropdown("Select a Mob", {"nil", "Skull Android", "Azura", "Pikkon", "Turles", "Nappa", "Cyber", "Dr. Gero", "Yeti King", "Android 13", "Nash Ketchup", "Skull Android", "Azura", "Kataba", "Zuto", "Sell", "Nash Ketchup", "Ape", "Snowman", "Elf", "Santa", "Frost SSJ4", "SSJ4", "Frost", "Thief", "Thief Boss", "Bear Minion", "Bear King", "Aien", "Rogue Experiments", "Green Saibaman", "Red Saibaman", "Mountain Fighter", "Monster Saibablue", "Evil Namekian", "Martial Artists", "Spopov", "Yam", "Farmer", "Mobster", "Mob Mobster", "Elite Alien", "Funny Guy", "Saibablue", "Mutant Saibaman", "Evil Saiyan", "Postboy Namekian", "Greater Spopov", "Greater Yam", "Evil Majin", "Evil Saiyan", "Prototype Android", "Corrupted Kai", "Robert", "Boku Black", "Desert Bandit", "Ajax Follower" }, "nil", 0.25, function(newmobxd)
     mob = newmobxd
 end)
 
