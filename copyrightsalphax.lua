@@ -147,7 +147,8 @@ local mobPositions = {
     ["General Saibaman"] = Vector3.new(-2341.474609375, 422.7643737792969, 4535.72119140625),
     ["Demons"] = Vector3.new(-2665.125244140625, 422.763916015625, 3638.4794921875),
     ["Resurrected Villain"] = Vector3.new(-1974.1162109375, 488.6253967285156, 4843.640625),
-    ["Frozen Rogue Experiments"] = Vector3.new(-11963.912109375, 434.88238525390625, 10376.19140625)
+    ["Frozen Rogue Experiments"] = Vector3.new(-11963.912109375, 434.88238525390625, 10376.19140625),
+    ["Zuto"] = Vector3.new(-13131.482421875, 569.38818359375, 8901.443359375)
 }
 
 local islandpos = {
@@ -174,6 +175,8 @@ function getquest(quest)
         questRemoteEvents:WaitForChild("DefeatBearMinions"):FireServer(1)
 	elseif quest == "Keroken Ghost" then
         questRemoteEvents:WaitForChild("DefeatKerokenGhost"):FireServer(1)
+	elseif quest == "Zuto" then
+        questRemoteEvents:WaitForChild("DefeatZuto"):FireServer(1)	
     elseif quest == "Frozen Rogue Experiments" then
         questRemoteEvents:WaitForChild("DefeatFrozenRogueExperiments"):FireServer(1)
     elseif quest == "Bear King" then
@@ -424,7 +427,7 @@ end)
 
 --] Level Dropdowns [--
 
-local Dropdown_Mob = Level:CreateDropdown("Select a Mob", {"nil", "Frozen Rogue Experiments", "Snowkid", "Sell Tier 1", "Skull", "Azura", "Pikkon", "Turles", "Nappa", "Cyber", "Gero", "Yeti King", "Android 13", "Nash Ketchup", "Ape", "Snowman", "Elf", "Santa", "Frost SSJ4", "SSJ4", "Frost", "Thief", "Thief Boss", "Bear Minion", "Bear King", "Aien", "Rogue Experiments", "Green Saibaman", "Red Saibaman", "Mountain Fighter", "Monster Saibablue", "Evil Namekian", "Martial Artists", "Spopov", "Yam", "Farmer", "Mobster", "Mob Mobster", "Elite Alien", "Funny Guy", "Saibablue", "Mutant Saibaman", "Evil Saiyan", "Postboy Namekian", "Greater Spopov", "Greater Yam", "Evil Majin", "Evil Saiyan", "Prototype Android", "Corrupted Kai", "Robert", "Boku Black", "Desert Bandit", "Ajax Follower" }, "nil", 0.25, function(newmobxd)
+local Dropdown_Mob = Level:CreateDropdown("Select a Mob", {"nil", "Zuto", "Frozen Rogue Experiments", "Snowkid", "Sell Tier 1", "Skull", "Azura", "Pikkon", "Turles", "Nappa", "Cyber", "Gero", "Yeti King", "Android 13", "Nash Ketchup", "Ape", "Snowman", "Elf", "Santa", "Frost SSJ4", "SSJ4", "Frost", "Thief", "Thief Boss", "Bear Minion", "Bear King", "Aien", "Rogue Experiments", "Green Saibaman", "Red Saibaman", "Mountain Fighter", "Monster Saibablue", "Evil Namekian", "Martial Artists", "Spopov", "Yam", "Farmer", "Mobster", "Mob Mobster", "Elite Alien", "Funny Guy", "Saibablue", "Mutant Saibaman", "Evil Saiyan", "Postboy Namekian", "Greater Spopov", "Greater Yam", "Evil Majin", "Evil Saiyan", "Prototype Android", "Corrupted Kai", "Robert", "Boku Black", "Desert Bandit", "Ajax Follower" }, "nil", 0.25, function(newmobxd)
     mob = newmobxd
 end)
 
