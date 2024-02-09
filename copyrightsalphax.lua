@@ -89,7 +89,7 @@ local questNames = { -- aaaa my fingers
 	"Azura",
 	"Kataba",
 	"Zuto",
-	"Sell Tier 1",
+	"Sell Tier 1 & 2",
 	"Ketchup",
 	"13",
 	"Azura",
@@ -148,7 +148,20 @@ local mobPositions = {
     ["Demons"] = Vector3.new(-2665.125244140625, 422.763916015625, 3638.4794921875),
     ["Resurrected Villain"] = Vector3.new(-1974.1162109375, 488.6253967285156, 4843.640625),
     ["Frozen Rogue Experiments"] = Vector3.new(-11963.912109375, 434.88238525390625, 10376.19140625),
-    ["Zuto"] = Vector3.new(-13131.482421875, 569.38818359375, 8901.443359375)
+    ["Zuto"] = Vector3.new(-13131.482421875, 569.38818359375, 8901.443359375),
+    ["Turtles"] = Vector3.new(-13131.482421875, 569.38818359375, 8901.443359375),
+    ["Sell Tier 1 & 2"] = Vector3.new(-6014.44580078125, 2333.727294921875, 8712.095703125),
+    ["Skull Android"] = Vector3.new(-10187.318359375, 582.6741333007812, 3835.489990234375),
+    ["Nappa"] = Vector3.new(-10187.318359375, 582.6741333007812, 3835.489990234375),
+    ["Elf"] = Vector3.new(-20694.3203125, 483.656005859375, 554.5396118164062),
+    ["Santa"] = Vector3.new(-20694.3203125, 483.656005859375, 554.5396118164062),
+    ["Snowkid"] = Vector3.new(-20694.3203125, 483.656005859375, 554.5396118164062),
+    ["Snowman"] = Vector3.new(-20694.3203125, 483.656005859375, 554.5396118164062),
+    ["Frost SSJ4"] = Vector3.new(-20694.3203125, 483.656005859375, 554.5396118164062),
+    ["Azura"] = Vector3.new(-4172.08447265625, 602.9735107421875, 31.372798919677734)
+	
+	
+	
 }
 
 local islandpos = {
@@ -161,7 +174,11 @@ local islandpos = {
     ["Squid Town"] = Vector3.new(-1157.947509765625, 371.4959411621094, -2971.9091796875),
     ["Tree Island"] = Vector3.new(-1157.947509765625, 371.4959411621094, -2971.9091796875),
     ["Destroyed City"] = Vector3.new(-1157.947509765625, 371.4959411621094, -2971.9091796875),
-    ["East City"] = Vector3.new(-1157.947509765625, 371.4959411621094, -2971.9091796875)
+    ["East City"] = Vector3.new(-1157.947509765625, 371.4959411621094, -2971.9091796875),
+    ["North Pole"] = Vector3.new(-11736.595703125, 415.88238525390625, 10145.607421875),
+    ["Sell Games Arena Mk.2"] = Vector3.new(-6014.44580078125, 2333.727294921875, 8712.095703125),
+    ["Frozen Village"] = Vector3.new(-10168.7939453125, 427.82208251953125, 3660.2236328125)
+
 }
 
 --] Functions [--
@@ -176,7 +193,7 @@ function getquest(quest)
 	elseif quest == "Keroken Ghost" then
         questRemoteEvents:WaitForChild("DefeatKerokenGhost"):FireServer(1)
 	elseif quest == "Zuto" then
-        questRemoteEvents:WaitForChild("DefeatZuto"):FireServer(1)	
+        questRemoteEvents:WaitForChild("Zuto"):FireServer(1)	
     elseif quest == "Frozen Rogue Experiments" then
         questRemoteEvents:WaitForChild("DefeatFrozenRogueExperiments"):FireServer(1)
     elseif quest == "Bear King" then
@@ -425,9 +442,13 @@ local Island12 = Island:CreateButton('Iceberg Town', function()
     hrp.Position = Vector3.new(-20694.3203125, 483.656005859375, 554.5396118164062)
 end)
 
+local Island13 = Island:CreateButton('North Pole', function()
+    hrp.Position = Vector3.new(-11736.595703125, 415.88238525390625, 10145.607421875)
+end)
+
 --] Level Dropdowns [--
 
-local Dropdown_Mob = Level:CreateDropdown("Select a Mob", {"nil", "Zuto", "Frozen Rogue Experiments", "Snowkid", "Sell Tier 1", "Skull", "Azura", "Pikkon", "Turles", "Nappa", "Cyber", "Gero", "Yeti King", "Android 13", "Nash Ketchup", "Ape", "Snowman", "Elf", "Santa", "Frost SSJ4", "SSJ4", "Frost", "Thief", "Thief Boss", "Bear Minion", "Bear King", "Aien", "Rogue Experiments", "Green Saibaman", "Red Saibaman", "Mountain Fighter", "Monster Saibablue", "Evil Namekian", "Martial Artists", "Spopov", "Yam", "Farmer", "Mobster", "Mob Mobster", "Elite Alien", "Funny Guy", "Saibablue", "Mutant Saibaman", "Evil Saiyan", "Postboy Namekian", "Greater Spopov", "Greater Yam", "Evil Majin", "Evil Saiyan", "Prototype Android", "Corrupted Kai", "Robert", "Boku Black", "Desert Bandit", "Ajax Follower" }, "nil", 0.25, function(newmobxd)
+local Dropdown_Mob = Level:CreateDropdown("Select a Mob", {"nil", "Zuto", "Frozen Rogue Experiments", "Snowkid", "Sell Tier 1 & 2", "Skull", "Azura", "Pikkon", "Turtles", "Nappa", "Cyber", "Gero", "Yeti King", "Android 13", "Nash Ketchup", "Ape", "Snowman", "Elf", "Santa", "Frost SSJ4", "SSJ4", "Frost", "Thief", "Thief Boss", "Bear Minion", "Bear King", "Aien", "Rogue Experiments", "Green Saibaman", "Red Saibaman", "Mountain Fighter", "Monster Saibablue", "Evil Namekian", "Martial Artists", "Spopov", "Yam", "Farmer", "Mobster", "Mob Mobster", "Elite Alien", "Funny Guy", "Saibablue", "Mutant Saibaman", "Evil Saiyan", "Postboy Namekian", "Greater Spopov", "Greater Yam", "Evil Majin", "Evil Saiyan", "Prototype Android", "Corrupted Kai", "Robert", "Boku Black", "Desert Bandit", "Ajax Follower" }, "nil", 0.25, function(newmobxd)
     mob = newmobxd
 end)
 
