@@ -2,7 +2,7 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/SRVRHOLDER/alphax/main/lib.lua"))()
 
 --] Window [--
-local Window = Library:CreateWindow('AlphaX', 'Dragon Soul', 'Welcome to AlphaX!', 'rbxassetid://0', false, 'AlphaX', 'Default')
+local Window = Library:CreateWindow('ArgeX', 'Dragon Soul', 'Welcome to ALLER's HACKS!', 'rbxassetid://0', false, 'ArgeX', 'Default')
 
 --] Locals [--
 local ts = game:GetService("TweenService")
@@ -94,7 +94,8 @@ local questNames = { -- aaaa my fingers
 	"13",
 	"Azura",
 	"Pikkon",
-	"Snowkid"
+	"Snowkid",
+	"Frozen Rogue Experiments"
 }
 
 local islandNames = {"Jungle Island", "Great Ape Westeland", "Great Plains Island", "Galactic Patrol Island", "Power Tower Island", "Rad Ribbon Island", "Squid Town", "Tree Island", "Destroyed City", "East City", "Iceberg Town"}
@@ -145,7 +146,8 @@ local mobPositions = {
     ["Namekian Mercenaries"] = Vector3.new(-3010.73681640625, 422.76434326171875, 4878.26123046875),
     ["General Saibaman"] = Vector3.new(-2341.474609375, 422.7643737792969, 4535.72119140625),
     ["Demons"] = Vector3.new(-2665.125244140625, 422.763916015625, 3638.4794921875),
-    ["Resurrected Villain"] = Vector3.new(-1974.1162109375, 488.6253967285156, 4843.640625),
+    ["Resurrected Villain"] = Vector3.new(-1974.1162109375, 488.6253967285156, 4843.640625),,
+    ["Frozen Rogue Experiments"] = Vector3.new(-11963.912109375, 434.88238525390625, 10376.19140625)
 }
 
 local islandpos = {
