@@ -172,6 +172,10 @@ function getquest(quest)
         questRemoteEvents:WaitForChild("DefeatThievesBoss"):FireServer(1)
     elseif quest == "Bear Minion" then
         questRemoteEvents:WaitForChild("DefeatBearMinions"):FireServer(1)
+	elseif quest == "Keroken Ghost" then
+        questRemoteEvents:WaitForChild("DefeatKerokenGhost"):FireServer(1)
+    elseif quest == "Frozen Rogue Experiments" then
+        questRemoteEvents:WaitForChild("DefeatFrozenRogueExperiments"):FireServer(1)
     elseif quest == "Bear King" then
         questRemoteEvents:WaitForChild("DefeatBearKing"):FireServer(1)
     elseif quest == "Alien" then
