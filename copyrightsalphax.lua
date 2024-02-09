@@ -2,7 +2,7 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/SRVRHOLDER/alphax/main/lib.lua"))()
 
 --] Window [--
-local Window = Library:CreateWindow('ArgeX', 'Dragon Soul', 'Welcome to ALLER's HACKS!', 'rbxassetid://0', false, 'ArgeX', 'Default')
+local Window = Library:CreateWindow('ArgeX', 'Dragon Soul', 'Welcome to ALLER HACKS!', 'rbxassetid://0', false, 'ArgeX', 'Default')
 
 --] Locals [--
 local ts = game:GetService("TweenService")
