@@ -148,18 +148,20 @@ local mobPositions = {
     ["Demons"] = Vector3.new(-2665.125244140625, 422.763916015625, 3638.4794921875),
     ["Resurrected Villain"] = Vector3.new(-1974.1162109375, 488.6253967285156, 4843.640625),
     ["Frozen Rogue Experiments"] = Vector3.new(-11963.912109375, 434.88238525390625, 10376.19140625),
-    ["Zuto"] = Vector3.new(-13131.482421875, 569.38818359375, 8901.443359375),
+    ["Zuto"] = Vector3.new(-13135.505859375, 577.5628051757812, 8867.07421875),
     ["Turles"] = Vector3.new(-2781.04541015625, 1472.84814453125, -6215.40478515625),
-    ["Sell Tier 1"] = Vector3.new(-6080.8671875, 2341.863525390625, 8779.0986328125),
-    ["Sell Tier 2"] = Vector3.new(-6080.8671875, 2341.863525390625, 8779.0986328125),
+    ["Sell Tier 2"] = Vector3.new(-6080.5576171875, 2335.532470703125, 8781.01953125),
     ["Skull Android"] = Vector3.new(-10187.318359375, 582.6741333007812, 3835.489990234375),
-    ["Nappa"] = Vector3.new(-10187.318359375, 582.6741333007812, 3835.489990234375),
+    ["Nappa"] = Vector3.new(-1181.265380859375, 419.1838073730469, 4231.46826171875),
     ["Elf"] = Vector3.new(-20694.3203125, 483.656005859375, 554.5396118164062),
     ["Santa"] = Vector3.new(-20694.3203125, 483.656005859375, 554.5396118164062),
     ["Snowkid"] = Vector3.new(-20694.3203125, 483.656005859375, 554.5396118164062),
     ["Snowman"] = Vector3.new(-20694.3203125, 483.656005859375, 554.5396118164062),
     ["Frost SSJ4"] = Vector3.new(-20694.3203125, 483.656005859375, 554.5396118164062),
-    ["Azura"] = Vector3.new(-4172.08447265625, 602.9735107421875, 31.372798919677734)
+    ["Azura"] = Vector3.new(-4172.08447265625, 602.9735107421875, 31.372798919677734),
+    ["Pizza Man"] = Vector3.new(-2766.15576171875, 423.1876220703125, 3572.7138671875),
+    ["Android 13"] = Vector3.new(-7904.44140625, 401.61737060546875, 1133.00048828125),
+    ["Kataba"] = Vector3.new(-12331.419921875, 486.461181640625, 9311.1923828125)
 	
 	
 	
@@ -191,10 +193,8 @@ function getquest(quest)
         questRemoteEvents:WaitForChild("DefeatThievesBoss"):FireServer(1)
     elseif quest == "Bear Minion" then
         questRemoteEvents:WaitForChild("DefeatBearMinions"):FireServer(1)
-	elseif quest == "Keroken Ghost" then
-        questRemoteEvents:WaitForChild("DefeatKerokenGhost"):FireServer(1)
 	elseif quest == "Zuto" then
-        questRemoteEvents:WaitForChild("Zuto"):FireServer(1)	
+        questRemoteEvents:WaitForChild("DefeatZuto"):FireServer(1)	
     elseif quest == "Frozen Rogue Experiments" then
         questRemoteEvents:WaitForChild("DefeatFrozenRogueExperiments"):FireServer(1)
     elseif quest == "Bear King" then
