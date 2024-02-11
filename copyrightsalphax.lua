@@ -163,7 +163,7 @@ local mobPositions = {
     ["Pizza Man"] = Vector3.new(-2766.15576171875, 423.1876220703125, 3572.7138671875),
     ["Android 13"] = Vector3.new(-7904.44140625, 401.61737060546875, 1133.00048828125),
     ["Kataba"] = Vector3.new(-12331.419921875, 486.461181640625, 9311.1923828125),
-    ["SellC_Supernova"] = Vector3.new(-6793.4736328125, 502.1885070800781, -15981.6904296875)
+    ["Sell Tier 3 SP"] = Vector3.new(-6850.2158203125, 466.718994140625, -15981.6904296875)
 	
 	
 	
@@ -451,7 +451,7 @@ end)
 
 --] Level Dropdowns [--
 
-local Dropdown_Mob = Level:CreateDropdown("Select a Mob", {"nil","SellC_Supernova", "Zuto", "Frozen Rogue Experiments", "Snowkid", "Sell Tier 1", "Sell Tier 2", "Skull", "Azura", "Pikkon", "Turles", "Nappa", "Cyber", "Gero", "Yeti King", "Android 13", "Nash Ketchup", "Ape", "Snowman", "Elf", "Santa", "Frost SSJ4", "SSJ4", "Frost", "Thief", "Thief Boss", "Bear Minion", "Bear King", "Aien", "Rogue Experiments", "Green Saibaman", "Red Saibaman", "Mountain Fighter", "Monster Saibablue", "Evil Namekian", "Martial Artists", "Spopov", "Yam", "Farmer", "Mobster", "Mob Mobster", "Elite Alien", "Funny Guy", "Saibablue", "Mutant Saibaman", "Evil Saiyan", "Postboy Namekian", "Greater Spopov", "Greater Yam", "Evil Majin", "Evil Saiyan", "Prototype Android", "Corrupted Kai", "Robert", "Boku Black", "Desert Bandit", "Ajax Follower" }, "nil", 0.25, function(newmobxd)
+local Dropdown_Mob = Level:CreateDropdown("Select a Mob", {"nil","Sell Tier 3 SP", "Zuto", "Frozen Rogue Experiments", "Snowkid", "Sell Tier 1", "Sell Tier 2", "Skull", "Azura", "Pikkon", "Turles", "Nappa", "Cyber", "Gero", "Yeti King", "Android 13", "Nash Ketchup", "Ape", "Snowman", "Elf", "Santa", "Frost SSJ4", "SSJ4", "Frost", "Thief", "Thief Boss", "Bear Minion", "Bear King", "Aien", "Rogue Experiments", "Green Saibaman", "Red Saibaman", "Mountain Fighter", "Monster Saibablue", "Evil Namekian", "Martial Artists", "Spopov", "Yam", "Farmer", "Mobster", "Mob Mobster", "Elite Alien", "Funny Guy", "Saibablue", "Mutant Saibaman", "Evil Saiyan", "Postboy Namekian", "Greater Spopov", "Greater Yam", "Evil Majin", "Evil Saiyan", "Prototype Android", "Corrupted Kai", "Robert", "Boku Black", "Desert Bandit", "Ajax Follower" }, "nil", 0.25, function(newmobxd)
     mob = newmobxd
 end)
 
