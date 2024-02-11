@@ -96,7 +96,8 @@ local questNames = { -- aaaa my fingers
 	"Pikkon",
 	"Snowkid",
 	"Frozen Rogue Experiments",
-	"Perfect Sell"
+	"Perfect Sell",
+	"Ape"
 }
 
 local islandNames = {"Jungle Island", "Great Ape Westeland", "Great Plains Island", "Galactic Patrol Island", "Power Tower Island", "Rad Ribbon Island", "Squid Town", "Tree Island", "Destroyed City", "East City", "Iceberg Town", "North Pole"}
@@ -206,6 +207,8 @@ function getquest(quest)
         questRemoteEvents:WaitForChild("DefeatAliens"):FireServer(1)
     elseif quest == "Rogue Experiments" then
         questRemoteEvents:WaitForChild("EscapedTestSubjects"):FireServer(1)
+	elseif quest == "Ape" then
+        questRemoteEvents:WaitForChild("GreatApeChallenge"):FireServer(1)	
     elseif quest == "Green Saibaman" then
         questRemoteEvents:WaitForChild("DefeatGreenSaibaman"):FireServer(1)
     elseif quest == "Red Saibaman" then
