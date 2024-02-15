@@ -1,43 +1,6 @@
 --] Boot [--
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/SRVRHOLDER/alphax/main/lib.lua"))()
 
--- Define a function to enable window dragging
-local function enableDragging(window)
-    local draggingEnabled = false
-    local dragInput, dragStart, startPos
-
-    -- Function to handle mouse input
-    window.InputBegan:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseButton1 then
-            draggingEnabled = true
-            dragStart = input.Position
-            startPos = window.Position
-
-            input.Changed:Connect(function()
-                if input.UserInputState == Enum.UserInputState.End then
-                    draggingEnabled = false
-                end
-            end)
-        end
-    end)
-
-    window.InputChanged:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseMovement then
-            dragInput = input
-        end
-    end)
-
-    -- Function to update window position while dragging
-    game:GetService("UserInputService").InputChanged:Connect(function(input)
-        if input == dragInput and draggingEnabled then
-            local delta = input.Position - dragStart
-            window.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-        end
-    end)
-end
-
-
-
 
 --] Window [--
 local Window = Library:CreateWindow('ArgeX', 'Dragon Soul', 'Welcome to Phoenix Aller Hub!', 'rbxassetid://0', false, 'ArgeX', 'Default')
@@ -794,5 +757,42 @@ while wait() do
         end
     end
 end
+
+
+-- Define a function to enable window dragging
+local function enableDragging(window)
+    local draggingEnabled = false
+    local dragInput, dragStart, startPos
+
+    -- Function to handle mouse input
+    window.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 then
+            draggingEnabled = true
+            dragStart = input.Position
+            startPos = window.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    draggingEnabled = false
+                end
+            end)
+        end
+    end)
+
+    window.InputChanged:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseMovement then
+            dragInput = input
+        end
+    end)
+
+    -- Function to update window position while dragging
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and draggingEnabled then
+            local delta = input.Position - dragStart
+            window.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+        end
+    end)
+end
+
 
 enableDragging(Window)
