@@ -806,10 +806,10 @@ local function makeDraggable(guiElement)
 end
 
 -- Make the window draggable
-makeDraggable(Window:WaitForChild('Home'))
-makeDraggable(Window:WaitForChild('Farm'))
-makeDraggable(Window:WaitForChild('Points'))
-makeDraggable(Window:WaitForChild('Teleports'))
-makeDraggable(Window:WaitForChild('Misc'))
-makeDraggable(Window:WaitForChild('Settings'))
+makeDraggable(Windows:WaitForChild('Home'))
+makeDraggable(Windows:WaitForChild('Farm'))
+makeDraggable(Windows:WaitForChild('Points'))
+makeDraggable(Windows:WaitForChild('Teleports'))
+makeDraggable(Windows:WaitForChild('Misc'))
+makeDraggable(Windows:WaitForChild('Settings'))
 makeDraggable(Window)
