@@ -795,9 +795,10 @@ local function enableDragging(window)
 end
 
 -- Apply dragging functionality to each window
-enableDragging(Windows:WaitForChild('Home'))
-enableDragging(Windows:WaitForChild('Farm'))
-enableDragging(Windows:WaitForChild('Points'))
-enableDragging(Windows:WaitForChild('Teleports'))
-enableDragging(Windows:WaitForChild('Misc'))
-enableDragging(Windows:WaitForChild('Settings'))
+enableDragging(Window:WaitForChild('Home'))
+enableDragging(Window:WaitForChild('Farm'))
+enableDragging(Window:WaitForChild('Points'))
+enableDragging(Window:WaitForChild('Teleports'))
+enableDragging(Window:WaitForChild('Misc'))
+enableDragging(Window:WaitForChild('Settings'))
+enableDragging(Window)
