@@ -161,7 +161,7 @@ local mobPositions = {
     ["Santa"] = Vector3.new(-20694.3203125, 483.656005859375, 554.5396118164062),
     ["Snowkid"] = Vector3.new(-20694.3203125, 483.656005859375, 554.5396118164062),
     ["Snowman"] = Vector3.new(-20694.3203125, 483.656005859375, 554.5396118164062),
-    ["Frost SSJ4"] = Vector3.new(-20724.49609375, 495.906494140625, 586.3284301757812),
+    ["SSJ4White"] = Vector3.new(-20724.49609375, 495.906494140625, 586.3284301757812),
     ["Azura"] = Vector3.new(-4172.08447265625, 602.9735107421875, 31.372798919677734),
     ["Pizza Man"] = Vector3.new(-2766.15576171875, 423.1876220703125, 3572.7138671875),
     ["Android 13"] = Vector3.new(-7904.44140625, 401.61737060546875, 1133.00048828125),
@@ -457,7 +457,7 @@ end)
 
 --] Level Dropdowns [--
 
-local Dropdown_Mob = Level:CreateDropdown("Select a Mob", {"nil", "Elite Saiyan", "Sell T3 MP", "Sell Tier 3 SP", "Zuto", "Frozen Rogue Experiments", "Snowkid", "Sell Tier 1", "Sell Tier 2", "Skull", "Azura", "Pikkon", "Turles", "Nappa", "Cyber", "Gero", "Yeti King", "Android 13", "Nash Ketchup", "Ape", "Snowman", "Elf", "Santa", "Frost SSJ4", "SSJ4", "Frost", "Thief", "Thief Boss", "Bear Minion", "Bear King", "Aien", "Rogue Experiments", "Green Saibaman", "Red Saibaman", "Mountain Fighter", "Monster Saibablue", "Evil Namekian", "Martial Artists", "Spopov", "Yam", "Farmer", "Mobster", "Mob Mobster", "Elite Alien", "Funny Guy", "Saibablue", "Mutant Saibaman", "Evil Saiyan", "Postboy Namekian", "Greater Spopov", "Greater Yam", "Evil Majin", "Evil Saiyan", "Prototype Android", "Corrupted Kai", "Robert", "Boku Black", "Desert Bandit", "Ajax Follower" }, "nil", 0.25, function(newmobxd)
+local Dropdown_Mob = Level:CreateDropdown("Select a Mob", {"nil", "Elite Saiyan", "Sell T3 MP", "Sell Tier 3 SP", "Zuto", "Frozen Rogue Experiments", "Snowkid", "Sell Tier 1", "Sell Tier 2", "Skull", "Azura", "Pikkon", "Turles", "Nappa", "Cyber", "Gero", "Yeti King", "Android 13", "Nash Ketchup", "Ape", "Snowman", "Elf", "Santa", "SSJ4White", "SSJ4", "Frost", "Thief", "Thief Boss", "Bear Minion", "Bear King", "Aien", "Rogue Experiments", "Green Saibaman", "Red Saibaman", "Mountain Fighter", "Monster Saibablue", "Evil Namekian", "Martial Artists", "Spopov", "Yam", "Farmer", "Mobster", "Mob Mobster", "Elite Alien", "Funny Guy", "Saibablue", "Mutant Saibaman", "Evil Saiyan", "Postboy Namekian", "Greater Spopov", "Greater Yam", "Evil Majin", "Evil Saiyan", "Prototype Android", "Corrupted Kai", "Robert", "Boku Black", "Desert Bandit", "Ajax Follower" }, "nil", 0.25, function(newmobxd)
     mob = newmobxd
 end)
 
