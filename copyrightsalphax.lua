@@ -200,7 +200,7 @@ function getquest(quest)
 	elseif quest == "Zuto" then
         questRemoteEvents:WaitForChild("DefeatZuto"):FireServer(1)	
     elseif quest == "Frozen Rogue Experiments" then
-        questRemoteEvents:WaitForChild("FR3_S6"):FireServer(1)
+        questRemoteEvents:WaitForChild("EscapedTestSubjects"):FireServer(1)
     elseif quest == "Bear King" then
         questRemoteEvents:WaitForChild("DefeatBearKing"):FireServer(1)
     elseif quest == "Alien" then
