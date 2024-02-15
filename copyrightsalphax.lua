@@ -42,7 +42,6 @@ end
 --] Window [--
 local Window = Library:CreateWindow('ArgeX', 'Dragon Soul', 'Welcome to Phoenix Aller Hub!', 'rbxassetid://0', false, 'ArgeX', 'Default')
 
-enableDragging(Window)
 
 --] Locals [--
 local ts = game:GetService("TweenService")
@@ -795,3 +794,5 @@ while wait() do
         end
     end
 end
+
+enableDragging(Window)
