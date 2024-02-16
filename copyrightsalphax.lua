@@ -577,7 +577,7 @@ local LocalPlayer = Players.LocalPlayer
 local Rejoin = Useful:CreateButton('Rejoin', function()
     local RejoinCoroutine = coroutine.create(function()
         local Success, ErrorMessage = pcall(function()
-            TeleportService:TeleportToPlaceInstance(1245252776, LocalPlayer)
+            TeleportService:TeleportToPlaceInstance(3164075108, LocalPlayer)
         end)
  
         if not Success and ErrorMessage then
