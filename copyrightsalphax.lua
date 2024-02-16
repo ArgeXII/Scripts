@@ -171,7 +171,8 @@ local mobPositions = {
     ["Kataba"] = Vector3.new(-12331.419921875, 486.461181640625, 9311.1923828125),
     ["Sell Tier 3 SP"] = Vector3.new(-6850.2158203125, 466.718994140625, -15981.6904296875),
 	["Sell Tier 3 MP"] = Vector3.new(-6850.2158203125, 466.718994140625, -15981.6904296875),
-	["Pikkon"] = Vector3.new(-12735.201171875, 901.7113647460938, -1251.0631103515625)
+	["Pikkon"] = Vector3.new(-12735.201171875, 901.7113647460938, -1251.0631103515625),
+	["Keroken Ghost"] = Vector3.new(-11217.4814453125, 719.6253662109375, 10303.6767578125)
 	
 	
 }
@@ -202,10 +203,16 @@ function getquest(quest)
         questRemoteEvents:WaitForChild("DefeatThievesBoss"):FireServer(1)
     elseif quest == "Bear Minion" then
         questRemoteEvents:WaitForChild("DefeatBearMinions"):FireServer(1)
+    elseif quest == "Keroken Ghost" then
+        questRemoteEvents:WaitForChild("FR3_S5_2"):FireServer(1)
+    elseif quest == "Winter Zombie" then
+        questRemoteEvents:WaitForChild("FR3_S4"):FireServer(1)
+    elseif quest == "Escaped Criminals" then
+        questRemoteEvents:WaitForChild("FR3_S5"):FireServer(1)
 	elseif quest == "Zuto" then
-        questRemoteEvents:WaitForChild("DefeatZuto"):FireServer(1)	
+        questRemoteEvents:WaitForChild("FR3_S6"):FireServer(1)	
     elseif quest == "Frozen Rogue Experiments" then
-        questRemoteEvents:WaitForChild("EscapedTestSubjects"):FireServer(1)
+        questRemoteEvents:WaitForChild("FR3_S5_1"):FireServer(1)
     elseif quest == "Bear King" then
         questRemoteEvents:WaitForChild("DefeatBearKing"):FireServer(1)
     elseif quest == "Alien" then
@@ -761,6 +768,11 @@ while wait() do
     end
 end
 
+
+-- Assuming Library is a reference to your GUI library
+
+-- Create the window
+local Window = Library:CreateWindow('ArgeX', 'Dragon Soul', 'Welcome to Phoenix Aller Hub!', 'rbxassetid://0', false, 'ArgeX', 'Default')
 
 -- Function to make a GUI element draggable
 local function makeDraggable(guiElement)
