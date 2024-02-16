@@ -16,7 +16,7 @@ local vim = game:GetService('VirtualInputManager')
 local hrp = char:WaitForChild("HumanoidRootPart")
 local Players = game:GetService("Players")
 local TeleportService = game:GetService ("TeleportService")
-local PlaceId = 1245252776
+local PlaceId = game.PlaceId
 
 --] Extra Locals [--
 local farm = false
@@ -570,20 +570,25 @@ end)
 
 --] Buttons [--
 
+local TeleportService = game:GetService("TeleportService")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
 local Rejoin = Useful:CreateButton('Rejoin', function()
--- not made by me, Creator: POTATO228
-local Rejoin = coroutine.create(function()
-    local Success, ErrorMessage = pcall(function()
-        TeleportService:Teleport(game.PlaceId, LocalPlayer)
+    local RejoinCoroutine = coroutine.create(function()
+        local Success, ErrorMessage = pcall(function()
+            TeleportService:TeleportToPlaceInstance(1245252776, LocalPlayer)
+        end)
+ 
+        if not Success and ErrorMessage then
+            warn(ErrorMessage)
+        end
     end)
  
-    if ErrorMessage and not Success then
-        warn(ErrorMessage)
-    end
+    coroutine.resume(RejoinCoroutine)
 end)
- 
-coroutine.resume(Rejoin)
-end)
+
+
 
 local ServerHop = Useful:CreateButton('Serverhop', function()
 -- not made by me, Creator: idk who made it (guest)
