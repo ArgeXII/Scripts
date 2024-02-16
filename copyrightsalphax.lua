@@ -1,60 +1,9 @@
 --] Boot [--
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/SRVRHOLDER/alphax/main/lib.lua"))()
 
--- Create the window and store it in a variable
+
+--] Window [--
 local Window = Library:CreateWindow('ArgeX', 'Dragon Soul', 'Welcome to Phoenix Aller Hub!', 'rbxassetid://0', false, 'ArgeX', 'Default')
-
--- Store original window position for dragging
-local originalWindowPosition = Window:GetPosition()
-
--- Flag to track if dragging is in progress
-local isDragging = false
-
--- Function to handle mouse movement
-local function onMouseMove(x, y)
-    if isDragging then
-        -- Calculate new position based on mouse movement
-        local xOffset = x - dragStart.X
-        local yOffset = y - dragStart.Y
-        local newPosition = UDim2.new(originalWindowPosition.X.Scale, originalWindowPosition.X.Offset + xOffset,
-                                       originalWindowPosition.Y.Scale, originalWindowPosition.Y.Offset + yOffset)
-        -- Update window position
-        Window:SetPosition(newPosition)
-    end
-end
-
--- Function to minimize the window
-local function minimizeWindow()
-    Window:SetVisible(false)
-end
-
--- Connect minimize/maximize events to a button in the GUI
-local minimizeButton = Window:GetMinimizeButton() -- Assuming the window object has a method to get the minimize button
-if minimizeButton then
-    minimizeButton.MouseButton1Click:Connect(function()
-        if Window:IsVisible() then
-            minimizeWindow()
-        else
-            Window:SetVisible(true)
-        end
-    end)
-end
-
--- Connect mouse events for dragging
-Window:GetTopBar():GetMouse().MouseButtonDown:Connect(function(x, y)
-    -- Check if mouse is within the top bar area
-    if Window:GetTopBar():IsPointInside(x, y) then
-        isDragging = true
-        dragStart = Vector2.new(x, y)
-    end
-end)
-
-Window:GetTopBar():GetMouse().MouseButtonUp:Connect(function()
-    isDragging = false
-end)
-
-Window:GetTopBar():GetMouse().MouseMove:Connect(onMouseMove)
-
 
 
 --] Locals [--
