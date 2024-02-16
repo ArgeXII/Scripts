@@ -102,7 +102,8 @@ local questNames = { -- aaaa my fingers
 	"Perfect Sell",
 	"Ape",
 	"Sell Tier 3 MP",
-	"Sell Tier 3 SP"
+	"Sell Tier 3 SP",
+	"Keroken Ghost"
 }
 
 local islandNames = {"Jungle Island", "Great Ape Westeland", "Great Plains Island", "Galactic Patrol Island", "Power Tower Island", "Rad Ribbon Island", "Squid Town", "Tree Island", "Destroyed City", "East City", "Iceberg Town", "North Pole"}
