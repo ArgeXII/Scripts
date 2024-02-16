@@ -1,55 +1,59 @@
 --] Boot [--
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/SRVRHOLDER/alphax/main/lib.lua"))()
 
-
---] Window [--
+-- Create the window and store it in a variable
 local Window = Library:CreateWindow('ArgeX', 'Dragon Soul', 'Welcome to Phoenix Aller Hub!', 'rbxassetid://0', false, 'ArgeX', 'Default')
-local dragging = false
-local dragInput, dragStart, startPos
 
--- Function to handle when the user starts dragging the window
-function startDrag(input)
-    dragStart = input.Position
-    startPos = Window.Position
-    dragging = true
+-- Store original window position for dragging
+local originalWindowPosition = Window:GetPosition()
+
+-- Flag to track if dragging is in progress
+local isDragging = false
+
+-- Function to handle mouse movement
+local function onMouseMove(x, y)
+    if isDragging then
+        -- Calculate new position based on mouse movement
+        local xOffset = x - dragStart.X
+        local yOffset = y - dragStart.Y
+        local newPosition = UDim2.new(originalWindowPosition.X.Scale, originalWindowPosition.X.Offset + xOffset,
+                                       originalWindowPosition.Y.Scale, originalWindowPosition.Y.Offset + yOffset)
+        -- Update window position
+        Window:SetPosition(newPosition)
+    end
 end
 
--- Function to handle when the user stops dragging the window
-function stopDrag()
-    dragStart = nil
-    dragging = false
+-- Function to minimize the window
+local function minimizeWindow()
+    Window:SetVisible(false)
 end
 
--- Function to handle when the user is dragging the window
-function updateDrag(input)
-    local delta = input.Position - dragStart
-    Window.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+-- Connect minimize/maximize events to a button in the GUI
+local minimizeButton = Window:GetMinimizeButton() -- Assuming the window object has a method to get the minimize button
+if minimizeButton then
+    minimizeButton.MouseButton1Click:Connect(function()
+        if Window:IsVisible() then
+            minimizeWindow()
+        else
+            Window:SetVisible(true)
+        end
+    end)
 end
 
--- Connect mouse events to the functions
-Window.TopBar.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 then
-        startDrag(input)
+-- Connect mouse events for dragging
+Window:GetTopBar():GetMouse().MouseButtonDown:Connect(function(x, y)
+    -- Check if mouse is within the top bar area
+    if Window:GetTopBar():IsPointInside(x, y) then
+        isDragging = true
+        dragStart = Vector2.new(x, y)
     end
 end)
 
-Window.TopBar.InputChanged:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseMovement then
-        dragInput = input
-    end
+Window:GetTopBar():GetMouse().MouseButtonUp:Connect(function()
+    isDragging = false
 end)
 
-Window.TopBar.InputEnded:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 then
-        stopDrag()
-    end
-end)
-
-game:GetService("UserInputService").InputChanged:Connect(function(input)
-    if input == dragInput and dragging then
-        updateDrag(input)
-    end
-end)
+Window:GetTopBar():GetMouse().MouseMove:Connect(onMouseMove)
 
 
 
