@@ -5,6 +5,52 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/SRVRH
 --] Window [--
 local Window = Library:CreateWindow('ArgeX', 'Dragon Soul', 'Welcome to Phoenix Aller Hub!', 'rbxassetid://0', false, 'ArgeX', 'Default')
 
+local dragging = false
+local dragInput, dragStart, startPos
+
+-- Function to handle when the user starts dragging the window
+function startDrag(input)
+    dragStart = input.Position
+    startPos = Window.Position
+    dragging = true
+end
+
+-- Function to handle when the user stops dragging the window
+function stopDrag()
+    dragStart = nil
+    dragging = false
+end
+
+-- Function to handle when the user is dragging the window
+function updateDrag(input)
+    local delta = input.Position - dragStart
+    Window.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+end
+
+-- Connect mouse events to the functions
+Window.TopBar.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        startDrag(input)
+    end
+end)
+
+Window.TopBar.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement then
+        dragInput = input
+    end
+end)
+
+Window.TopBar.InputEnded:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        stopDrag()
+    end
+end)
+
+game:GetService("UserInputService").InputChanged:Connect(function(input)
+    if input == dragInput and dragging then
+        updateDrag(input)
+    end
+end)
 
 
 --] Locals [--
