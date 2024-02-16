@@ -5,53 +5,6 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/SRVRH
 --] Window [--
 local Window = Library:CreateWindow('ArgeX', 'Dragon Soul', 'Welcome to Phoenix Aller Hub!', 'rbxassetid://0', false, 'ArgeX', 'Default')
 
-local dragging = false
-local dragInput, dragStart, startPos
-
--- Function to handle when the user starts dragging the window
-function startDrag(input)
-    dragStart = input.Position
-    startPos = Window.Position
-    dragging = true
-end
-
--- Function to handle when the user stops dragging the window
-function stopDrag()
-    dragStart = nil
-    dragging = false
-end
-
--- Function to handle when the user is dragging the window
-function updateDrag(input)
-    local delta = input.Position - dragStart
-    Window.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-end
-
--- Connect mouse events to the functions
-Window.TopBar.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 then
-        startDrag(input)
-    end
-end)
-
-Window.TopBar.InputChanged:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseMovement then
-        dragInput = input
-    end
-end)
-
-Window.TopBar.InputEnded:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 then
-        stopDrag()
-    end
-end)
-
-game:GetService("UserInputService").InputChanged:Connect(function(input)
-    if input == dragInput and dragging then
-        updateDrag(input)
-    end
-end)
-
 
 --] Locals [--
 local ts = game:GetService("TweenService")
@@ -808,53 +761,49 @@ while wait() do
 end
 
 
--- Assuming Library is a reference to your GUI library
+local dragging = false
+local dragInput, dragStart, startPos
 
--- Create the window
-local Window = Library:CreateWindow('ArgeX', 'Dragon Soul', 'Welcome to Phoenix Aller Hub!', 'rbxassetid://0', false, 'ArgeX', 'Default')
-
--- Function to make a GUI element draggable
-local function makeDraggable(guiElement)
-    local dragging
-    local dragInput
-    local dragStart
-    local startPos
-
-    -- Function to handle when the touch input starts on the GUI
-    local function onTouchStart(input)
-        if input.UserInputType == Enum.UserInputType.Touch then
-            dragStart = input.Position
-            startPos = guiElement.Position
-
-            -- Connect touch moved event
-            dragging = true
-            input.Changed:Connect(function()
-                if input.UserInputState == Enum.UserInputState.End then
-                    dragging = false
-                end
-            end)
-        end
-    end
-
-    -- Function to handle when the touch is moved
-    local function onTouchMove(input)
-        if dragging and input.UserInputType == Enum.UserInputType.Touch then
-            local delta = input.Position - dragStart
-            guiElement.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-        end
-    end
-
-    -- Connect touch events
-    guiElement.InputBegan:Connect(onTouchStart)
-    game:GetService("UserInputService").InputChanged:Connect(onTouchMove)
+-- Function to handle when the user starts dragging the window
+function startDrag(input)
+    dragStart = input.Position
+    startPos = Window.Position
+    dragging = true
 end
 
+-- Function to handle when the user stops dragging the window
+function stopDrag()
+    dragStart = nil
+    dragging = false
+end
 
--- Make the window draggable
-makeDraggable(Windows:WaitForChild('Home'))
-makeDraggable(Windows:WaitForChild('Farm'))
-makeDraggable(Windows:WaitForChild('Points'))
-makeDraggable(Windows:WaitForChild('Teleports'))
-makeDraggable(Windows:WaitForChild('Misc'))
-makeDraggable(Windows:WaitForChild('Settings'))
-makeDraggable(Window)
+-- Function to handle when the user is dragging the window
+function updateDrag(input)
+    local delta = input.Position - dragStart
+    Window.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+end
+
+-- Connect mouse events to the functions
+Window.TopBar.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        startDrag(input)
+    end
+end)
+
+Window.TopBar.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement then
+        dragInput = input
+    end
+end)
+
+Window.TopBar.InputEnded:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        stopDrag()
+    end
+end)
+
+game:GetService("UserInputService").InputChanged:Connect(function(input)
+    if input == dragInput and dragging then
+        updateDrag(input)
+    end
+end)
