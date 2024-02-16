@@ -467,7 +467,7 @@ end)
 
 --] Level Dropdowns [--
 
-local Dropdown_Mob = Level:CreateDropdown("Select a Mob", {"nil", "Keroken Ghost" "Elite Saiyan", "Sell Tier 3 MP", "Sell Tier 3 SP", "Zuto", "Frozen Rogue Experiments", "Snowkid", "Sell Tier 1", "Sell Tier 2", "Skull", "Azura", "Pikkon", "Turles", "Nappa", "Cyber", "Gero", "Yeti King", "Android 13", "Nash Ketchup", "Ape", "Snowman", "Elf", "Santa", "SSJ4White", "SSJ4", "Frost", "Thief", "Thief Boss", "Bear Minion", "Bear King", "Aien", "Rogue Experiments", "Green Saibaman", "Red Saibaman", "Mountain Fighter", "Monster Saibablue", "Evil Namekian", "Martial Artists", "Spopov", "Yam", "Farmer", "Mobster", "Mob Mobster", "Elite Alien", "Funny Guy", "Saibablue", "Mutant Saibaman", "Evil Saiyan", "Postboy Namekian", "Greater Spopov", "Greater Yam", "Evil Majin", "Evil Saiyan", "Prototype Android", "Corrupted Kai", "Robert", "Boku Black", "Desert Bandit", "Ajax Follower" }, "nil", 0.25, function(newmobxd)
+local Dropdown_Mob = Level:CreateDropdown("Select a Mob", {"nil", "Keroken Ghost", "Elite Saiyan", "Sell Tier 3 MP", "Sell Tier 3 SP", "Zuto", "Frozen Rogue Experiments", "Snowkid", "Sell Tier 1", "Sell Tier 2", "Skull", "Azura", "Pikkon", "Turles", "Nappa", "Cyber", "Gero", "Yeti King", "Android 13", "Nash Ketchup", "Ape", "Snowman", "Elf", "Santa", "SSJ4White", "SSJ4", "Frost", "Thief", "Thief Boss", "Bear Minion", "Bear King", "Aien", "Rogue Experiments", "Green Saibaman", "Red Saibaman", "Mountain Fighter", "Monster Saibablue", "Evil Namekian", "Martial Artists", "Spopov", "Yam", "Farmer", "Mobster", "Mob Mobster", "Elite Alien", "Funny Guy", "Saibablue", "Mutant Saibaman", "Evil Saiyan", "Postboy Namekian", "Greater Spopov", "Greater Yam", "Evil Majin", "Evil Saiyan", "Prototype Android", "Corrupted Kai", "Robert", "Boku Black", "Desert Bandit", "Ajax Follower" }, "nil", 0.25, function(newmobxd)
     mob = newmobxd
 end)
 
@@ -767,55 +767,3 @@ while wait() do
         end
     end
 end
-
-
--- Assuming Library is a reference to your GUI library
-
--- Create the window
-local Window = Library:CreateWindow('ArgeX', 'Dragon Soul', 'Welcome to Phoenix Aller Hub!', 'rbxassetid://0', false, 'ArgeX', 'Default')
-
--- Function to make a GUI element draggable
-local function makeDraggable(guiElement)
-    local dragging
-    local dragInput
-    local dragStart
-    local startPos
-
-    -- Function to handle when the touch input starts on the GUI
-    local function onTouchStart(input)
-        if input.UserInputType == Enum.UserInputType.Touch then
-            dragStart = input.Position
-            startPos = guiElement.Position
-
-            -- Connect touch moved event
-            dragging = true
-            input.Changed:Connect(function()
-                if input.UserInputState == Enum.UserInputState.End then
-                    dragging = false
-                end
-            end)
-        end
-    end
-
-    -- Function to handle when the touch is moved
-    local function onTouchMove(input)
-        if dragging and input.UserInputType == Enum.UserInputType.Touch then
-            local delta = input.Position - dragStart
-            guiElement.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-        end
-    end
-
-    -- Connect touch events
-    guiElement.InputBegan:Connect(onTouchStart)
-    game:GetService("UserInputService").InputChanged:Connect(onTouchMove)
-end
-
-
--- Make the window draggable
-makeDraggable(Windows:WaitForChild('Home'))
-makeDraggable(Windows:WaitForChild('Farm'))
-makeDraggable(Windows:WaitForChild('Points'))
-makeDraggable(Windows:WaitForChild('Teleports'))
-makeDraggable(Windows:WaitForChild('Misc'))
-makeDraggable(Windows:WaitForChild('Settings'))
-makeDraggable(Window)
