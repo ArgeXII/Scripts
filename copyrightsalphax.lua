@@ -760,50 +760,60 @@ while wait() do
     end
 end
 
+-- Assuming you already have a GUI instance named "Window"
 
-local dragging = false
-local dragInput, dragStart, startPos
+local dragging = nil
+local dragInput = nil
+local dragStart = nil
+local startPos = nil
 
--- Function to handle when the user starts dragging the window
-function startDrag(input)
-    dragStart = input.Position
-    startPos = Window.Position
-    dragging = true
-end
-
--- Function to handle when the user stops dragging the window
-function stopDrag()
-    dragStart = nil
-    dragging = false
-end
-
--- Function to handle when the user is dragging the window
-function updateDrag(input)
+local function updateInput(input)
     local delta = input.Position - dragStart
-    Window.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+    local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+    game:GetService("TweenService"):Create(Window, TweenInfo.new(0.25), {Position = position}):Play()
 end
 
--- Connect mouse events to the functions
-Window.TopBar.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 then
-        startDrag(input)
+Window.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        dragging = true
+        dragStart = input.Position
+        startPos = Window.Position
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
     end
 end)
 
-Window.TopBar.InputChanged:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseMovement then
+Window.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
         dragInput = input
-    end
-end)
-
-Window.TopBar.InputEnded:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 then
-        stopDrag()
     end
 end)
 
 game:GetService("UserInputService").InputChanged:Connect(function(input)
     if input == dragInput and dragging then
-        updateDrag(input)
+        updateInput(input)
+    end
+end)
+
+-- Add minimize/maximize button
+
+local MinimizeButton = Instance.new("TextButton")
+MinimizeButton.Parent = Window -- Assuming the button is added to the GUI window
+MinimizeButton.Text = "-"
+MinimizeButton.Size = UDim2.new(0, 20, 0, 20)
+MinimizeButton.Position = UDim2.new(1, -20, 0, 0)
+MinimizeButton.MouseButton1Click:Connect(function()
+    -- Minimize/Maximize functionality
+    if Window.Size == UDim2.new(0, 0, 0, 0) then
+        -- Maximize the window
+        Window.Size = UDim2.new(0, 200, 0, 200) -- Adjust size accordingly
+        MinimizeButton.Text = "-"
+    else
+        -- Minimize the window
+        Window.Size = UDim2.new(0, 0, 0, 0)
+        MinimizeButton.Text = "+"
     end
 end)
