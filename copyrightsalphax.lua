@@ -574,24 +574,20 @@ local TeleportService = game:GetService("TeleportService")
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
-local function rejoinServer()
-    local placeId = 14230662527
-    local gameId = 3164075108
-    local serverJobId = "3b4e407f-d352-4c65-af13-728503c15af9"
-    local serverInstanceId = "3b4e407f-d352-4c65-af13-728503c15af9"
-    
-    local success, errorMessage = pcall(function()
-        TeleportService:TeleportToPlaceInstance(placeId, gameId, serverJobId, serverInstanceId)
-    end)
-    
-    if not success then
-        warn("Failed to rejoin server:", errorMessage)
-    end
-end
-
 local Rejoin = Useful:CreateButton('Rejoin', function()
-    rejoinServer()
+    local RejoinCoroutine = coroutine.create(function()
+        local Success, ErrorMessage = pcall(function()
+            TeleportService:TeleportToPlaceInstance(14230662527, 3164075108, "3b4e407f-d352-4c65-af13-728503c15af9", "3b4e407f-d352-4c65-af13-728503c15af9")
+        end)
+ 
+        if not Success and ErrorMessage then
+            warn(ErrorMessage)
+        end
+    end)
+ 
+    coroutine.resume(RejoinCoroutine)
 end)
+
 
 
 
