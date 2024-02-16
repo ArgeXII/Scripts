@@ -6,6 +6,7 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/SRVRH
 local Window = Library:CreateWindow('ArgeX', 'Dragon Soul', 'Welcome to Phoenix Aller Hub!', 'rbxassetid://0', false, 'ArgeX', 'Default')
 
 
+
 --] Locals [--
 local ts = game:GetService("TweenService")
 local plr = game.Players.LocalPlayer
@@ -760,3 +761,49 @@ while wait() do
     end
 end
 
+
+-- Function to make a GUI element draggable
+local function makeDraggable(guiElement)
+    local dragging
+    local dragInput
+    local dragStart
+    local startPos
+
+    -- Function to handle when the touch input starts on the GUI
+    local function onTouchStart(input)
+        if input.UserInputType == Enum.UserInputType.Touch then
+            dragStart = input.Position
+            startPos = guiElement.Position
+
+            -- Connect touch moved event
+            dragging = true
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragging = false
+                end
+            end)
+        end
+    end
+
+    -- Function to handle when the touch is moved
+    local function onTouchMove(input)
+        if dragging and input.UserInputType == Enum.UserInputType.Touch then
+            local delta = input.Position - dragStart
+            guiElement.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+        end
+    end
+
+    -- Connect touch events
+    guiElement.InputBegan:Connect(onTouchStart)
+    game:GetService("UserInputService").InputChanged:Connect(onTouchMove)
+end
+
+
+-- Make the window draggable
+makeDraggable(Windows:WaitForChild('Home'))
+makeDraggable(Windows:WaitForChild('Farm'))
+makeDraggable(Windows:WaitForChild('Points'))
+makeDraggable(Windows:WaitForChild('Teleports'))
+makeDraggable(Windows:WaitForChild('Misc'))
+makeDraggable(Windows:WaitForChild('Settings'))
+makeDraggable(Window)
